@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: offer-management-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: offer-management-service
+  template:
+    metadata:
+      labels:
+        app: offer-management-service
+    spec:
+      containers:
+      - name: offer-management-service
+        image: gograbjob/offer-management-service:10.0.0.1
+        ports:
+        - containerPort: 8500
